@@ -1,6 +1,6 @@
 {
   "name": "express-easy-helper",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "Simple helper module for Express, return promises and simple response's",
   "main": "lib/index.js",
   "scripts": {
