@@ -27,7 +27,7 @@ var app = express();
 
 // Return status 200 with text 'Hello world'
 app.get('/', function(req, res) {
-	return api.result(res, 'Hello wolrd');
+	return api.result(res, 'Hello world');
 });
 // Return status 201 with text 'Hello world'
 app.get('/', function(req, res) {
