@@ -18,57 +18,53 @@ npm i
 ```
 ## Example
 
-ES6 with promises
+**ES5**
 
 ```javascript
+var express = require('express');
+var api = require('express-easy-helper');
+var app = express();
 
-import api from 'express-easy-helper';
-import Hello from '../models/hello';
-
-export function list(req, res) {
-
-  Hello.find().exec()
-     .then(api.ok(res))
-     .catch(api.error(res));
-
-}
-
-export function read(req, res) {
-
-  Hello.findById(req.params.id).exec()
-     .then(api.notFound(res))
-     .then(api.ok(res))
-     .catch(api.error(res));
-
-}
+app.get('/', function(req, res) {
+		api.result(res, 'Hello wolrd'); // Return status 200 with text 'Hello world'
+		api.result(res, 201 ,'Hello wolrd!') // Return status 201 with text 'Hello world'
+		api.result(res, {message: 'Hello wolrd!'}) // Return status 200 with Object
+		api.result(res, 201 ,{message: 'Hello wolrd!'}) // Return status 201 with Object
+});
 
 ```
-Options
+**ES6 (promises)**
 
 ```javascript
+import express from 'express';
+import {result, notFound, error} from 'express-easy-helper';
+const app = express();
+import Hello from 'models/hello.model';
 
-//Promises  
-api.ok(res)
-api.ok(res,201)
-
-//Simple (Not promises)
-api.ok(res, 'success!')
-api.ok(res, 200 ,'success!')
-api.ok(res, {message: 'success'})
-api.ok(res, 200 ,{message: 'success'})
-
+app.get('/', (req, res) => {
+	Hello.find().exec()
+		.then(notFound(res)) // Return status 404
+		.then(result(res)) // Return status 200 and Hello's object
+		.catch(error(res));// Return status 500 with error
+ });
 ```
-
 ## Method's
 
-* ok()
-* error()
-* notFound()
-* unauthorized()
-* forbidden()
-* badRequest()
-* unsupportedAction()
-* invalid()
+```javascript
+
+app.get('/', (req, res) => {
+
+		result(res) // 200
+		badRequest(res) // 400
+		unauthorized(res) // 401
+		forbidden(res) // 403
+		notFound(res) // 404
+		unsupportedAction(res) //405
+		invalid(res) //422
+		error(res) // 500
+
+});
+```
 
 ## License
 
