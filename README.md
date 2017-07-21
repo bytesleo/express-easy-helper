@@ -25,11 +25,21 @@ var express = require('express');
 var api = require('express-easy-helper');
 var app = express();
 
+// Return status 200 with text 'Hello world'
 app.get('/', function(req, res) {
-		api.result(res, 'Hello wolrd'); // Return status 200 with text 'Hello world'
-		api.result(res, 201 ,'Hello wolrd!') // Return status 201 with text 'Hello world'
-		api.result(res, {message: 'Hello wolrd!'}) // Return status 200 with Object
-		api.result(res, 201 ,{message: 'Hello wolrd!'}) // Return status 201 with Object
+	return api.result(res, 'Hello wolrd');
+});
+// Return status 201 with text 'Hello world'
+app.get('/', function(req, res) {
+	return api.result(res, 201 ,'Hello world!');
+});
+// Return status 200 with Object
+app.get('/', function(req, res) {
+	return api.result(res, {message: 'Hello world!'});
+});
+// Return status 201 with Object
+app.get('/', function(req, res) {
+	return api.result(res, 201 ,{message: 'Hello world!'});
 });
 
 ```
@@ -51,9 +61,7 @@ app.get('/', (req, res) => {
 ## Method's
 
 ```javascript
-
 app.get('/', (req, res) => {
-
 		result(res) // 200
 		badRequest(res) // 400
 		unauthorized(res) // 401
@@ -62,7 +70,6 @@ app.get('/', (req, res) => {
 		unsupportedAction(res) //405
 		invalid(res) //422
 		error(res) // 500
-
 });
 ```
 
