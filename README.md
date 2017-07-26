@@ -16,7 +16,23 @@ git clone https://github.com/kevoj/express-easy-helper
 cd express-easy-helper
 npm i
 ```
-## Example
+## Examples
+
+**ES6 (promises)**
+
+```javascript
+import express from 'express';
+import {result, notFound, error} from 'express-easy-helper';
+const app = express();
+import Hello from 'models/hello.model';
+
+app.get('/', (req, res) => {
+	Hello.find().exec()
+		.then(notFound(res)) // Return status 404
+		.then(result(res)) // Return status 200 and Hello's object
+		.catch(error(res));// Return status 500 with error
+ });
+```
 
 **ES5**
 
@@ -43,34 +59,35 @@ app.get('/', function(req, res) {
 });
 
 ```
-**ES6 (promises)**
 
-```javascript
-import express from 'express';
-import {result, notFound, error} from 'express-easy-helper';
-const app = express();
-import Hello from 'models/hello.model';
-
-app.get('/', (req, res) => {
-	Hello.find().exec()
-		.then(notFound(res)) // Return status 404
-		.then(result(res)) // Return status 200 and Hello's object
-		.catch(error(res));// Return status 500 with error
- });
-```
 ## Method's
 
 ```javascript
-app.get('/', (req, res) => {
-		result(res) // 200
-		badRequest(res) // 400
-		unauthorized(res) // 401
-		forbidden(res) // 403
-		notFound(res) // 404
-		unsupportedAction(res) //405
-		invalid(res) //422
-		error(res) // 500
-});
+
+// 200
+result(res)
+
+// 400
+badRequest(res)
+
+// 401
+unauthorized(res)
+
+// 403
+forbidden(res)
+
+// 404
+notFound(res)
+
+//405
+unsupportedAction(res)
+
+//422
+invalid(res)
+
+// 500
+error(res)
+
 ```
 
 ## License
