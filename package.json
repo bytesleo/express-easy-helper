@@ -1,7 +1,7 @@
 {
   "name": "express-easy-helper",
-  "version": "1.5.0",
-  "description": "Simple helper module for Express, return promises and simple response's",
+  "version": "1.5.1",
+  "description": "Simple helper module for express",
   "main": "lib/index.js",
   "scripts": {
     "watch": "webpack -w -d",

@@ -1,6 +1,6 @@
 # express-easy-helper
 
-> Simple helper module for Express, return promises and simple response's
+> Simple helper module for express
 
 ## Installation
 
@@ -19,8 +19,8 @@ yarn add express-easy-helper
 ## Example
 
 ```javascript
-import express from "express";
 import { success, forbidden } from "express-easy-helper";
+import express from "express";
 const app = express();
 
 app.get("/", (req, res) => {
@@ -30,14 +30,13 @@ app.get("/", (req, res) => {
 app.get("/protected", (req, res) => {
   forbidden(res);
 });
-
 ```
 
 ## Method's
 
 ```javascript
 // 200
-result(res);
+success(res);
 
 // 400
 badRequest(res);
@@ -59,6 +58,19 @@ invalid(res);
 
 // 500
 error(res);
+```
+
+## Options
+
+```javascript
+// Code status
+success(res, 201);
+
+// Object
+success(res, { object });
+
+// Code status and Object
+success(res, 201, { object });
 ```
 
 ## License
