@@ -1,20 +1,23 @@
 {
   "name": "express-easy-helper",
-  "version": "1.1.0",
+  "version": "1.5.0",
   "description": "Simple helper module for Express, return promises and simple response's",
   "main": "lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "watch": "webpack -w -d",
+    "build": "webpack -p",
+    "example": "node  --experimental-modules ./example/index.mjs"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kevoj/express-easy-helper.git"
   },
   "keywords": [
-    "express",
-    "api",
-    "response",
-    "helper"
+    "express-helper",
+    "api-helper",
+    "response-helper",
+    "node-helper",
+    "express-response"
   ],
   "author": "Leonardo Rico",
   "license": "MIT",
@@ -23,6 +26,13 @@
   },
   "homepage": "https://github.com/kevoj/express-easy-helper#readme",
   "dependencies": {
-    "express": "^4.15.3"
+    "express": "^4.17.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.2.0",
+    "@babel/preset-env": "^7.2.0",
+    "babel-loader": "^8.0.4",
+    "webpack": "^4.27.1",
+    "webpack-cli": "^3.1.2"
   }
 }
