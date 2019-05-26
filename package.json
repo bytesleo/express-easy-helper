@@ -2,7 +2,7 @@
   "name": "express-easy-helper",
   "version": "1.5.1",
   "description": "Simple helper module for express",
-  "main": "lib/index.js",
+  "main": "dist/bundle.js",
   "scripts": {
     "watch": "webpack -w -d",
     "build": "webpack -p",
