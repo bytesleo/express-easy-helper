@@ -27,6 +27,10 @@ app.get("/", (req, res) => {
   success(res, "hello");
 });
 
+app.get("/about", (req, res) => {
+  success(res, {"hello" : "world"});
+});
+
 app.get("/protected", (req, res) => {
   forbidden(res);
 });
@@ -63,11 +67,14 @@ error(res);
 ## Options
 
 ```javascript
+// Basic
+success(res);
+
 // Code status
 success(res, 201);
 
 // Object
-success(res, { object });
+success(res, { result: "ok" });
 
 // Code status and Object
 success(res, 201, { object });

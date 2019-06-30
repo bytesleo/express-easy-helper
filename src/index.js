@@ -10,7 +10,7 @@ const STATUS = {
 };
 
 /**
- * result
+ * success
  *
  * @param {*} res
  * @param {*} statusCode
