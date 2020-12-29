@@ -31,7 +31,7 @@ const success = (res, statusCode, data) => {
  * @param {*} data
  * @returns
  */
-const error = (res, statusCode, data = {}) => {
+const error = (res, statusCode, data) => {
   return res
     .status(data && Number.isInteger(statusCode) ? statusCode : STATUS.SERVER_ERROR)
     .json(data || statusCode || { result: "error" });
@@ -45,7 +45,7 @@ const error = (res, statusCode, data = {}) => {
  * @param {*} data
  * @returns
  */
-const notFound = (res, statusCode, data = {}) => {
+const notFound = (res, statusCode, data) => {
   return res
     .status(data && Number.isInteger(statusCode) ? statusCode : STATUS.NOT_FOUND)
     .json(data || statusCode || { result: "not found" });
@@ -59,7 +59,7 @@ const notFound = (res, statusCode, data = {}) => {
  * @param {*} data
  * @returns
  */
-const unauthorized = (res, statusCode, data = {}) => {
+const unauthorized = (res, statusCode, data) => {
   return res
     .status(data && Number.isInteger(statusCode) ? statusCode : STATUS.UNAUTHORIZED)
     .json(data || statusCode || { result: "unauthorized" });
@@ -73,7 +73,7 @@ const unauthorized = (res, statusCode, data = {}) => {
  * @param {*} data
  * @returns
  */
-const forbidden = (res, statusCode, data = {}) => {
+const forbidden = (res, statusCode, data) => {
   return res
     .status(data && Number.isInteger(statusCode) ? statusCode : STATUS.FORBIDDEN)
     .json(data || statusCode || { result: "forbidden" });
@@ -87,7 +87,7 @@ const forbidden = (res, statusCode, data = {}) => {
  * @param {*} data
  * @returns
  */
-const badRequest = (res, statusCode, data = {}) => {
+const badRequest = (res, statusCode, data) => {
   return res
     .status(data && Number.isInteger(statusCode) ? statusCode : STATUS.BAD_REQUEST)
     .json(data || statusCode || { result: "bad request" });
@@ -101,7 +101,7 @@ const badRequest = (res, statusCode, data = {}) => {
  * @param {*} data
  * @returns
  */
-const unsupportedAction = (res, statusCode, data = {}) => {
+const unsupportedAction = (res, statusCode, data) => {
   return res
     .status(data && Number.isInteger(statusCode) ? statusCode : STATUS.UNSUPPORTED_ACTION)
     .json(data || statusCode || { result: "unsupported" });
@@ -115,7 +115,7 @@ const unsupportedAction = (res, statusCode, data = {}) => {
  * @param {*} data
  * @returns
  */
-const invalid = (res, statusCode, data = {}) => {
+const invalid = (res, statusCode, data) => {
   return res
     .status(data && Number.isInteger(statusCode) ? statusCode : STATUS.VALIDATION_FAILED)
     .json(data || statusCode || { result: "invalid" });
