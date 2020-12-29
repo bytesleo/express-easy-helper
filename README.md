@@ -16,23 +16,31 @@ yarn
 yarn add express-easy-helper
 ```
 
-## Example
+## Usage
 
 ```javascript
-import { success, forbidden } from "express-easy-helper";
+import { success, unauthorized, forbidden, error } from "express-easy-helper";
 import express from "express";
 const app = express();
 
+// success
 app.get("/", (req, res) => {
-  success(res, "hello");
+  success(res, { hello: "world" });
 });
 
-app.get("/about", (req, res) => {
-  success(res, {"hello" : "world"});
+// unauthorized
+app.get("/protected", (req, res) => {
+  unauthorized(res);
 });
 
+// forbidden
 app.get("/protected", (req, res) => {
   forbidden(res);
+});
+
+// error
+app.get("/error", (req, res) => {
+  error(res);
 });
 ```
 
@@ -73,11 +81,11 @@ success(res);
 // Code status
 success(res, 201);
 
-// Object
-success(res, { result: "ok" });
+// Data
+success(res, { hello: "world" });
 
-// Code status and Object
-success(res, 201, { object });
+// Code status and data
+success(res, 201, { hello: "world" });
 ```
 
 ## License
