@@ -29,7 +29,7 @@ app.get("/", (req, res) => {
 });
 
 // unauthorized
-app.get("/protected", (req, res) => {
+app.get("/unauthorized", (req, res) => {
   unauthorized(res);
 });
 
