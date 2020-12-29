@@ -20,7 +20,7 @@ const STATUS = {
 const success = (res, statusCode, data) => {
   return res
     .status(data ? statusCode : STATUS.OK)
-    .json(data || statusCode || { result: "" });
+    .json(data || statusCode || { result: "success" });
 };
 
 /**
