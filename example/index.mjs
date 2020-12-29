@@ -1,5 +1,5 @@
 import express from "express";
-import api from "../dist/bundle.js";
+import api from "../dist/lib.min.js";
 const app = express();
 
 app.get("/", function (req, res) {

@@ -3,7 +3,7 @@ module.exports = {
   output: {
     path: __dirname + "/dist",
     publicPath: "/dist/",
-    filename: "bundle.js",
+    filename: "lib.min.js",
     libraryTarget: "commonjs2"
   },
   module: {
