@@ -4,16 +4,16 @@
 
 ## Installation
 
-npm
-
-```bash
-npm install express-easy-helper --save
-```
-
 yarn
 
 ```bash
 yarn add express-easy-helper
+```
+
+npm
+
+```bash
+npm install express-easy-helper --save
 ```
 
 ## Usage
