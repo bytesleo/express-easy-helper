@@ -6,7 +6,7 @@ const STATUS = {
   NOT_FOUND: 404,
   UNSUPPORTED_ACTION: 405,
   VALIDATION_FAILED: 422,
-  SERVER_ERROR: 500
+  SERVER_ERROR: 500,
 };
 
 /**
@@ -20,7 +20,7 @@ const STATUS = {
 const success = (res, statusCode, data) => {
   return res
     .status(data ? statusCode : STATUS.OK)
-    .json(data || statusCode || "success");
+    .json(data || statusCode || { result: "" });
 };
 
 /**
@@ -34,7 +34,7 @@ const success = (res, statusCode, data) => {
 const error = (res, statusCode, data) => {
   return res
     .status(data ? statusCode : STATUS.SERVER_ERROR)
-    .json(data || statusCode || "error");
+    .json(data || statusCode || { result: "error" });
 };
 
 /**
@@ -48,7 +48,7 @@ const error = (res, statusCode, data) => {
 const notFound = (res, statusCode, data) => {
   return res
     .status(data ? statusCode : STATUS.NOT_FOUND)
-    .json(data || statusCode || "not found");
+    .json(data || statusCode || { result: "not found" });
 };
 
 /**
@@ -62,7 +62,7 @@ const notFound = (res, statusCode, data) => {
 const unauthorized = (res, statusCode, data) => {
   return res
     .status(data ? statusCode : STATUS.UNAUTHORIZED)
-    .json(data || statusCode || "unauthorized");
+    .json(data || statusCode || { result: "unauthorized" });
 };
 
 /**
@@ -76,7 +76,7 @@ const unauthorized = (res, statusCode, data) => {
 const forbidden = (res, statusCode, data) => {
   return res
     .status(data ? statusCode : STATUS.FORBIDDEN)
-    .json(data || statusCode || "forbidden");
+    .json(data || statusCode || { result: "forbidden" });
 };
 
 /**
@@ -90,7 +90,7 @@ const forbidden = (res, statusCode, data) => {
 const badRequest = (res, statusCode, data) => {
   return res
     .status(data ? statusCode : STATUS.BAD_REQUEST)
-    .json(data || statusCode || "bad request");
+    .json(data || statusCode || { result: "bad request" });
 };
 
 /**
@@ -104,7 +104,7 @@ const badRequest = (res, statusCode, data) => {
 const unsupportedAction = (res, statusCode, data) => {
   return res
     .status(data ? statusCode : STATUS.UNSUPPORTED_ACTION)
-    .json(data || statusCode || "unsupported");
+    .json(data || statusCode || { result: "unsupported" });
 };
 
 /**
@@ -118,7 +118,7 @@ const unsupportedAction = (res, statusCode, data) => {
 const invalid = (res, statusCode, data) => {
   return res
     .status(data ? statusCode : STATUS.VALIDATION_FAILED)
-    .json(data || statusCode || "invalid");
+    .json(data || statusCode || { result: "invalid" });
 };
 
 export {
@@ -129,5 +129,5 @@ export {
   forbidden,
   badRequest,
   unsupportedAction,
-  invalid
+  invalid,
 };
